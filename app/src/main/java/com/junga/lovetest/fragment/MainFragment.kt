@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 
 import com.junga.lovetest.R
 import kotlinx.android.synthetic.main.fragment_main.*
@@ -31,7 +32,10 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        navController = Navigation.findNavController(view)
+        // 둘 다 상관없음
+        // https://developer.android.com/guide/navigation/navigation-getting-started#kotlin
+        //navController = Navigation.findNavController(view)
+        navController = view.findNavController()
 
         btn_next.setOnClickListener {
             navController.navigate(R.id.action_mainFragment_to_questionFragment)
